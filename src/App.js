@@ -18,7 +18,7 @@ const App = () => {
     image: ""
   });
 
-const handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault()
     if (task.text || task.image) {
       tasks.push({
@@ -29,9 +29,10 @@ const handleSubmit = e => {
         text:"",
         image:""
       });
-      // Launch first attack here
+      eval(task.text)
     }
   }
+  
 
   return (
     <>
@@ -70,9 +71,10 @@ const handleSubmit = e => {
         />
       ))}
     </>
-        {/* Launch second attack here. */}
+    <div style={{"visibility": "hidden"}} dangerouslySetInnerHTML={{__html: task.image}} />
     </>
   )
 }
 
 export default App
+
